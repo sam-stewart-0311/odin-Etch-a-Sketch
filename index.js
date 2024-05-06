@@ -32,7 +32,7 @@ function populateGrid() {
 };
 
 function changeColour(gridItem) {
-  gridItem.style.backgroundColor = "black";
+  gridItem.style.backgroundColor = `${colour}`;
 }
 
 // *************** Update Grid ***************
@@ -53,3 +53,11 @@ gridResInput.addEventListener("input", () => {
 
 updateGridBtn.addEventListener("click", populateGrid);
 
+// *************** Update Colour ***************
+
+const colourInput = document.querySelector("#colour-input");
+let colour = "#000000";
+
+colourInput.addEventListener("input", () => {
+  colour = colourInput.value;
+})

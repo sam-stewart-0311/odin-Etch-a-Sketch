@@ -30,17 +30,17 @@ body {
 }
 
 #top-row {
-  background-color: aqua;
+  /* background-color: aqua; */
   flex: 1;
 }
 
 #middle-row {
-  background-color: beige;
+  /* background-color: beige; */
   flex: 1;
 }
 
 #bottom-row {
-  background-color: blueviolet;
+  /* background-color: blueviolet; */
   flex: 1;
 }
 
@@ -54,4 +54,22 @@ body {
 
 .grid-item {
   border: 1px solid rgb(230, 230, 230);
+}
+
+#update-grid-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 8px;
+  border: 1px solid black;
+  border-radius: 10px;
+
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 4px;
 }
