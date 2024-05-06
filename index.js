@@ -10,12 +10,12 @@ gridContainer.style.width = `${gridWidth}px`;
 // *************** Add Grid Items ***************
 
 let gridResolution = 16;
+let gridItemsArr = gridContainer.childNodes;
 
 document.addEventListener('DOMContentLoaded', populateGrid);
 
 function populateGrid() {
 
-  // Clear Grid Before Populating
   gridContainer.innerHTML = "";
 
   for (let i = 0; i < (gridResolution ** 2); i++) {
@@ -25,15 +25,17 @@ function populateGrid() {
     gridItem.style.height = `${gridHeight / gridResolution}px`;
     gridItem.style.width = `${gridWidth / gridResolution}px`;
 
-    gridItem.addEventListener("mouseenter", () => changeColour(gridItem));
+    gridItem.addEventListener("mouseover", changeColour, true);
   
     gridContainer.appendChild(gridItem);
   };
+
+  gridItemsArr = gridContainer.childNodes;
 };
 
-function changeColour(gridItem) {
-  gridItem.style.backgroundColor = `${colour}`;
-}
+function changeColour(event) {
+  event.target.style.backgroundColor = `${colour}`;
+};
 
 // *************** Update Grid ***************
 
@@ -60,4 +62,22 @@ let colour = "#000000";
 
 colourInput.addEventListener("input", () => {
   colour = colourInput.value;
-})
+});
+
+// *************** Shift Key Functionality ***************
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Shift") {
+    gridItemsArr.forEach((gridItem) => {
+      gridItem.removeEventListener("mouseover", changeColour, true);
+    });
+  }
+});
+
+document.addEventListener("keyup", (e) => {
+  if (e.key === "Shift") {
+    gridItemsArr.forEach((gridItem) => {
+      gridItem.addEventListener("mouseover", changeColour, true);
+    });
+  }
+});
