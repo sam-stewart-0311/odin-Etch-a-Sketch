@@ -21,7 +21,7 @@ function populateGrid() {
   for (let i = 0; i < (gridResolution ** 2); i++) {
     const gridItem = document.createElement("div");
   
-    gridItem.className = "grid-item";
+    gridItem.className = "grid-lines";
     gridItem.style.height = `${gridHeight / gridResolution}px`;
     gridItem.style.width = `${gridWidth / gridResolution}px`;
 
@@ -54,6 +54,29 @@ gridResInput.addEventListener("input", () => {
 });
 
 updateGridBtn.addEventListener("click", populateGrid);
+
+// *************** Toggle Grid Lines ***************
+
+const gridLinesInput = document.querySelector("#toggle-grid-lines");
+
+let gridLinesInputActive = true; 
+
+gridLinesInput.addEventListener("change", () => {
+  if (gridLinesInputActive === true) {
+    gridLinesInputActive = false;
+
+    gridItemsArr.forEach((gridItem) => {
+      gridItem.classList.remove("grid-lines");
+    });
+
+  } else if (gridLinesInputActive === false) {
+    gridLinesInputActive = true;
+
+    gridItemsArr.forEach((gridItem) => {
+      gridItem.classList.add("grid-lines");
+    });
+  } 
+});
 
 // *************** Update Colour ***************
 
@@ -97,13 +120,14 @@ function randomiseColour() {
   let randomNumber = 0;
 
   for (let i = 0; i < 6; i++) {
+
     randomNumber = Math.floor(Math.random() * 16);
     
     hexArr.push(hexCharacters[randomNumber]);
   }
 
   hexString = `#${hexArr.toString().replaceAll(",", "")}`;
-  
+
   colour = hexString;
   colourInput.value = hexString;
 
