@@ -3,6 +3,9 @@
   <head>
     <meta charset="utf-8">
     <title>Etch-a-Sketch</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
   </head>
   <body>
@@ -21,7 +24,7 @@
 
       <div id="bottom-row">
         
-        <div id="update-grid-container">
+        <div class="parameter-container" id="update-grid-container">
           <div class="row">
             <span>Grid Resolution</span>
           </div>
@@ -36,16 +39,29 @@
           <div class="row">
             <button id="update-grid-btn">Update Grid</button>
           </div>
+          <div class="row">
+            <label for="toggle-grid-lines">Toggle Grid Lines</label>
+            <input type="checkbox" id="toggle-grid-lines" name="toggle-grid-lines" checked>
+          </div>
         </div>
 
-        <label for="toggle-grid-lines">Toggle Grid Lines</label>
-        <input type="checkbox" id="toggle-grid-lines" name="toggle-grid-lines" checked>
+        <div class="parameter-container" id="update-colour-container">
+          <div class="row">
+            <label for="colour-input">Select Colour</label>
+          </div>
+          <div class="row">
+            <input type="color" id="colour-input" name="colour-input">
+          </div>
+          <div class="row">
+            <label for="random-colour">Randomise Colour</label>
+            <input type="checkbox" id="random-colour" name="random-colour">
+          </div>
+        </div>
 
-        <label for="colour-input">Select Colour</label>
-        <input type="color" id="colour-input" name="colour-input">
 
-        <label for="random-colour">Randomise Colour</label>
-        <input type="checkbox" id="random-colour" name="random-colour">
+        
+
+
 
       </div>
 
