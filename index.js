@@ -64,6 +64,52 @@ colourInput.addEventListener("input", () => {
   colour = colourInput.value;
 });
 
+// *************** Randomise Colour ***************
+
+const randomColourInput = document.querySelector("#random-colour");
+
+let randomColourInputActive = false;
+
+randomColourInput.addEventListener("change", () => {
+  if(randomColourInputActive === false) {
+    randomColourInputActive = true;
+    
+    gridItemsArr.forEach((gridItem) => {
+      gridItem.addEventListener("mouseover", randomiseColour, true);
+    });
+
+  } else if (randomColourInputActive === true) {
+    randomColourInputActive = false;
+    
+    gridItemsArr.forEach((gridItem) => {
+      gridItem.removeEventListener("mouseover", randomiseColour, true);
+    });
+
+  }
+  
+});
+
+function randomiseColour() {
+  const hexCharacters = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "A", "B", "C", "D", "E", "F"];
+
+  let hexArr = [];
+  let hexString = "";
+  let randomNumber = 0;
+
+  for (let i = 0; i < 6; i++) {
+    randomNumber = Math.floor(Math.random() * 16);
+    
+    hexArr.push(hexCharacters[randomNumber]);
+  }
+
+  hexString = `#${hexArr.toString().replaceAll(",", "")}`;
+  
+  colour = hexString;
+  colourInput.value = hexString;
+
+  hexArr = [];
+  
+};
 // *************** Shift Key Functionality ***************
 
 document.addEventListener("keydown", (e) => {
