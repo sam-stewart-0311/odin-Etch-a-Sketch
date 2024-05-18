@@ -20,12 +20,20 @@ function populateGrid() {
 
   for (let i = 0; i < (gridResolution ** 2); i++) {
     const gridItem = document.createElement("div");
-  
-    gridItem.className = "grid-lines";
+    
     gridItem.style.height = `${gridHeight / gridResolution}px`;
     gridItem.style.width = `${gridWidth / gridResolution}px`;
 
+
     gridItem.addEventListener("mouseover", changeColour, true);
+
+    if (gridLinesInputActive === true) {
+      gridItem.className = "grid-lines";
+    }
+
+    if (randomColourInputActive === true) {
+      gridItem.addEventListener("mouseover", randomiseColour, true);
+    }
   
     gridContainer.appendChild(gridItem);
   };
@@ -44,14 +52,22 @@ const gridXReadout = document.querySelector("#grid-x");
 const gridYReadout = document.querySelector("#grid-y");
 const updateGridBtn = document.querySelector("#update-grid-btn");
 
-gridResInput.addEventListener("input", () => {
+gridResInput.addEventListener("input", updateGridRes);
+
+gridResInput.addEventListener("dblclick", () => {
+  gridResInput.value = 16;
+
+  updateGridRes();
+});
+
+function updateGridRes () {
   let inputValue = gridResInput.value;
   let inputValueString = inputValue.toString();
 
   gridXReadout.textContent = inputValueString;
   gridYReadout.textContent = inputValueString;
   gridResolution = inputValue;
-});
+};
 
 updateGridBtn.addEventListener("click", populateGrid);
 
@@ -151,3 +167,9 @@ document.addEventListener("keyup", (e) => {
     });
   }
 });
+
+
+/*
+ To Do:
+ - Make sure Toggle Grid Lines and Randomise Colour Checkboxes are followed when Updating the Grid
+*/
