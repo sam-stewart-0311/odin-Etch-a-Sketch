@@ -11,6 +11,7 @@ body {
   font-family: "Roboto", sans-serif;
   font-weight: 400;
   font-style: normal;
+  font-size: 18px;
 }
 
 #page-container {
@@ -28,24 +29,34 @@ body {
 #middle-row,
 #bottom-row {
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 100%;
+  flex: 1;
 }
 
-#top-row {
-  /* background-color: aqua; */
-  flex: 1;
+/* #top-row {
+  flex: 1 0 0;
+  background-color: aqua;
 }
 
 #middle-row {
-  /* background-color: beige; */
-  flex: 1;
+  flex: 1 0 0;
+  background-color: blanchedalmond;
 }
 
 #bottom-row {
-  /* background-color: blueviolet; */
-  flex: 1;
+  flex: 1 0 0;
+  background-color: aqua;
+} */
+
+#title {
+  font-size: 40px;
+}
+
+#tip-text {
+  font-size: 14px;
 }
 
 #grid-container {
@@ -62,19 +73,80 @@ body {
   border: 1px solid rgb(230, 230, 230);
 }
 
+#parameter-container-parent {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 160px;
+  width: 600px;
+  overflow: hidden;
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 10px;
+  margin: 20px;
+  padding: 10px;
+  /* padding-top: 10px;
+  padding-bottom: 10px; */
+}
+
 .parameter-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
-  padding: 8px;
-  border: 1px solid rgb(230, 230, 230);
-  border-radius: 10px;
+  height: 100%;
 }
 
 .row {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 4px;
+}
+
+.parameter-title {
+  font-size: 20px;
+  border-bottom: 1px solid rgb(230, 230, 230);
+}
+
+#update-grid-btn {
+  height: 30px;
+  width: 100px;
+  color: white;
+  font-size: 14px;
+  background-color: rgb(154, 154, 154);
+  border: 1px solid rgb(230, 230, 230);
+  border-radius: 50px;
+}
+
+#update-grid-btn:hover {
+  background-color: rgb(164, 164, 164);
+}
+
+#update-grid-btn:active {
+  background-color: rgb(174, 174, 174);
+}
+
+#toggle-grid-lines-label,
+#random-colour-label {
+  font-size: 14px;
+  margin-right: 4px;
+}
+
+#colour-input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  height: 80px;
+  width: 80px;
+  border: none;
+  border-radius: 40px;
+  overflow: hidden;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%; 
 }

@@ -11,9 +11,14 @@
   <body>
 
     <div id="page-container">
+
       <div id="top-row">
-        <span>Etch-a-Sketch</span>
-        <span>Tip: Hold the Shift Key to Lift the Cursor</span>
+        <div id="title-container">
+          <span id="title">Etch-a-Sketch</span>
+        </div>
+        <div id="tip-text-container">
+          <span id="tip-text">Tip: Hold the Shift Key to Lift the Cursor</span>
+        </div>
       </div>
 
       <div id="middle-row">
@@ -24,44 +29,41 @@
 
       <div id="bottom-row">
         
-        <div class="parameter-container" id="update-grid-container">
-          <div class="row">
-            <span>Grid Resolution</span>
+        <div id="parameter-container-parent">
+          <div class="parameter-container" id="update-grid-container">
+            <div class="row">
+              <span class="parameter-title">Grid</span>
+            </div>
+            <div class="row">
+              <span id="grid-x">16</span>
+              <span id="x">x</span>
+              <span id="grid-y">16</span>
+            </div>
+            <div class="row">
+              <input name="grid-range" id="grid-range" type="range" value="16" min="1" max="100">
+            </div>
+            <div class="row">
+              <button id="update-grid-btn">Update Grid</button>
+            </div>
+            <div class="row">
+              <label for="toggle-grid-lines" id="toggle-grid-lines-label">Toggle Grid Lines:</label>
+              <input type="checkbox" id="toggle-grid-lines" name="toggle-grid-lines" checked>
+            </div>
           </div>
-          <div class="row">
-            <span id="grid-x">16</span>
-            <span>x</span>
-            <span id="grid-y">16</span>
-          </div>
-          <div class="row">
-            <input name="grid-range" id="grid-range" type="range" value="16" min="1" max="100">
-          </div>
-          <div class="row">
-            <button id="update-grid-btn">Update Grid</button>
-          </div>
-          <div class="row">
-            <label for="toggle-grid-lines">Toggle Grid Lines</label>
-            <input type="checkbox" id="toggle-grid-lines" name="toggle-grid-lines" checked>
+  
+          <div class="parameter-container" id="update-colour-container">
+            <div class="row">
+              <label for="colour-input" class="parameter-title">Colour</label>
+            </div>
+            <div class="row">
+              <input type="color" id="colour-input" name="colour-input">
+            </div>
+            <div class="row">
+              <label for="random-colour" id="random-colour-label">Randomise Colour:</label>
+              <input type="checkbox" id="random-colour" name="random-colour">
+            </div>
           </div>
         </div>
-
-        <div class="parameter-container" id="update-colour-container">
-          <div class="row">
-            <label for="colour-input">Select Colour</label>
-          </div>
-          <div class="row">
-            <input type="color" id="colour-input" name="colour-input">
-          </div>
-          <div class="row">
-            <label for="random-colour">Randomise Colour</label>
-            <input type="checkbox" id="random-colour" name="random-colour">
-          </div>
-        </div>
-
-
-        
-
-
 
       </div>
 
